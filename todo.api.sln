@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D91B90DF-FCA0-4D97-A30C-C2436304560B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todo.Api", "src\Todo.Api\Todo.Api.csproj", "{DB513DA7-A34A-4F42-9502-81F1F4F93AC0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB513DA7-A34A-4F42-9502-81F1F4F93AC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB513DA7-A34A-4F42-9502-81F1F4F93AC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB513DA7-A34A-4F42-9502-81F1F4F93AC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB513DA7-A34A-4F42-9502-81F1F4F93AC0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DB513DA7-A34A-4F42-9502-81F1F4F93AC0} = {D91B90DF-FCA0-4D97-A30C-C2436304560B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A379757E-3273-4286-A689-8CE23324B6F1}
+	EndGlobalSection
+EndGlobal
