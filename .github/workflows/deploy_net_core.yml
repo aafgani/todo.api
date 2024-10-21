@@ -14,22 +14,24 @@ on:
         required: true
       subscription_id:
         required: true
+    outputs:
+      firstword:
+        description: "The first output string"
+        value: ${{ jobs.example_job.outputs.output1 }}
+      secondword:
+        description: "The second output string"
+        value: ${{ jobs.example_job.outputs.output2 }}
 
 jobs:
-  deploy_job:
+  example_job:
+    name: Generate output
     runs-on: ubuntu-latest
+    # Map the job outputs to step outputs
+    outputs:
+      output1: ${{ steps.step1.outputs.firstword }}
+      output2: ${{ steps.step2.outputs.secondword }}
     steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v3
-        with:
-          name: ${{inputs.artifact-name}}
-
-      - name: "Az CLI login using OIDC"
-        uses: Azure/login@v2.2.0
-        with:
-          # ClientId of the Azure Service principal created.
-          client-id: ${{ secrets.client_id }}
-          # TenantId of the Azure Service principal created.
-          tenant-id: ${{ secrets.tenant_id }}
-          # Azure subscriptionId
-          subscription-id: ${{ secrets.subscription_id }}
+      - id: step1
+        run: echo "firstword=hello" >> $GITHUB_OUTPUT
+      - id: step2
+        run: echo The artifact-name is ${{ inputs.artifact-name }} >> $GITHUB_OUTPUT
