@@ -1,0 +1,35 @@
+on:
+  workflow_call:
+    inputs:
+      artifact-path:
+        required: true
+        type: string
+      artifact-name:
+        required: true
+        type: string
+    secrets:
+      client_id:
+        required: true
+      tenant_id:
+        required: true
+      subscription_id:
+        required: true
+
+jobs:
+  deploy_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{inputs.artifact-name}}
+
+      - name: "Az CLI login using OIDC"
+        uses: Azure/login@v2.2.0
+        with:
+          # ClientId of the Azure Service principal created.
+          client-id: ${{ secrets.client_id }}
+          # TenantId of the Azure Service principal created.
+          tenant-id: ${{ secrets.tenant_id }}
+          # Azure subscriptionId
+          subscription-id: ${{ secrets.subscription_id }}
