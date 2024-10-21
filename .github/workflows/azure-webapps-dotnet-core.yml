@@ -65,6 +65,7 @@ jobs:
           path: ${{env.DOTNET_ROOT}}/myapp
 
   call-workflow:
+    needs: build
     uses: ./.github/workflows/deploy_net_core.yml
     with:
       artifact-name: .net-app
