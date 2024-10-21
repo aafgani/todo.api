@@ -34,4 +34,4 @@ jobs:
       - id: step1
         run: echo "firstword=hello" >> $GITHUB_OUTPUT
       - id: step2
-        run: echo The artifact-name is ${{ inputs.artifact-name }} >> $GITHUB_OUTPUT
+        run: echo "The artifact-name is ${{ inputs.artifact-name }}" >> $GITHUB_OUTPUT
